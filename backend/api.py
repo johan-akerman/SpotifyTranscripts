@@ -1,10 +1,7 @@
-import speech_recognition as sr 
 import os 
-from os import path
+import speech_recognition as sr 
 import requests
-import json
 import librosa
-import pydub
 from pydub import AudioSegment
 from pydub.silence import split_on_silence
 
@@ -16,8 +13,7 @@ class chunk:
     def __str__(self):
         return "startTime: " + str(self.startTime) + "s, endTime: " + str(self.endTime) + "s, sentence: " + self.sentence
 
-
-transcript = [] 
+transcript = []
 
 r = sr.Recognizer()
 
