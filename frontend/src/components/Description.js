@@ -1,6 +1,6 @@
 export default function Description() {
   return (
-    <div className="w-10/12 mx-auto mt-4 flex">
+    <div className="w-10/12 mx-auto flex">
       <img
         className="h-14 w-14 rounded-lg"
         src="https://i.scdn.co/image/ab6765630000ba8abf88c89529966619dae7c298"

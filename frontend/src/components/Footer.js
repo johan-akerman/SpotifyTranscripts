@@ -13,7 +13,10 @@ export default function Footer() {
   return (
     <div className="w-full bg-yellow-500 absolute h-36 bottom-0 text-center text-2xl p-8">
       <div className=" left-0 right-0 mx-auto">
-        <div className="h-1 bg-yellow-200 rounded-full"></div>
+        <div className="w-full bg-yellow-400 h-1">
+          <div className="bg-white h-1" style={{ width: "45%" }}></div>
+        </div>
+
         <div className="justify-between flex mt-2 text-xs text-yellow-100">
           <span>0:00</span>
           <span>- 42:00</span>
