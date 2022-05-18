@@ -9,9 +9,9 @@ export default function Episode() {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    fetch("/movies").then((response) =>
+    fetch("/podcasts").then((response) =>
       response.json().then((data) => {
-        setMovies(data.movies);
+        setMovies(data.podcasts);
       })
     );
   }, []);
@@ -20,7 +20,11 @@ export default function Episode() {
     <main className="bg-yellow-500 h-screen">
       <Navbar />
       <div>
-        <h1 className="text-5xl">{movies?.length}</h1>
+        <ul className="text-5xl">
+          {movies?.map((podcast, id) => {
+            return <li key={id}>{podcast.transcript}</li>;
+          })}
+        </ul>
       </div>
       <Form
         onNewMobie={(movie) =>
