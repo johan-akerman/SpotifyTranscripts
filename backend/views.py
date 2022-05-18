@@ -28,7 +28,6 @@ def podcasts():
         podcasts.append({"url": podcast.url, "transcript": podcast.transcript})
     return jsonify({"podcasts": podcasts})
 
-
 r = sr.Recognizer()
 
 def transcribe_from_url(url):
@@ -52,7 +51,7 @@ def transcribe_from_url(url):
     folder_name = "audio-chunks"
 
     if not os.path.isdir(folder_name):
-        os.mkdir(folder_name)
+        os.mkdir("backend/" + folder_name)
 
     for i, audio_chunk in enumerate(chunks, start=1):
         chunk_filename = os.path.join(folder_name, f"chunk{i}.wav")
