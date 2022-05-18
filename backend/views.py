@@ -37,8 +37,7 @@ def transcribe_from_url(url):
     with open("podcast.mp3", "wb") as file:
         file.write(downloaded_obj.content)
     AudioSegment.from_mp3("podcast.mp3").export("podcast.wav", format="wav") # converts mp3 to wav
-    os.remove("podcast.mp3") # removes original mp3 file
-
+ 
     transcript = ""
     startTime = 0.000
     sound = AudioSegment.from_wav("podcast.wav") 
@@ -48,10 +47,10 @@ def transcribe_from_url(url):
         keep_silence=500,
     )
 
-    folder_name = "audio-chunks"
+    folder_name = "backend/audio-chunks"
 
     if not os.path.isdir(folder_name):
-        os.mkdir("backend/" + folder_name)
+        os.mkdir(folder_name)
 
     for i, audio_chunk in enumerate(chunks, start=1):
         chunk_filename = os.path.join(folder_name, f"chunk{i}.wav")
@@ -69,5 +68,9 @@ def transcribe_from_url(url):
                 endTime = startTime + duration
                 transcript += "startTime: " + str(startTime) + "; endTime: " + str(endTime) + "; sentence: " + sentence
                 startTime += duration
-
+    
+    # cleanup
+    os.remove("podcast.mp3") 
+    os.remove("podcast.wav") 
+    
     return transcript
