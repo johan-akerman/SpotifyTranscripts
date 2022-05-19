@@ -6,33 +6,31 @@ import Navbar from "../components/Navbar";
 import Transcript from "../components/Transcript";
 
 export default function Episode() {
-  const [movies, setMovies] = useState([]);
+  const [transcript, setTranscript] = useState("");
 
   useEffect(() => {
-    fetch("/podcasts").then((response) =>
-      response.json().then((data) => {
-        setMovies(data.podcasts);
-      })
-    );
+    // fetch("/podcasts").then((response) =>
+    //   response.json().then((data) => {
+    //     setMovies(data.podcasts);
+    //   })
+    // );
   }, []);
 
   return (
     <main className="bg-yellow-500 h-screen">
       <Navbar />
-      <div>
-        <ul className="text-5xl">
-          {movies?.map((podcast, id) => {
-            return <li key={id}>{podcast.transcript}</li>;
-          })}
+      <div className="w-9/12 mx-auto">
+        <Form onNewTranscript={(transcript) => setTranscript(transcript)} />
+
+        <ul className="text-xl mt-20">
+          {/* {movies?.map((podcast, id) => {
+            return <li key={id}>{podcast.url}</li>;
+          })} */}
         </ul>
       </div>
-      <Form
-        onNewMobie={(movie) =>
-          setMovies((currentMovies) => [movie, ...currentMovies])
-        }
-      />
-      {/* <Description />
-      <Transcript /> */}
+      {transcript}
+      {/* {/* <Description /> */}
+      <Transcript />
       <Footer />
     </main>
   );

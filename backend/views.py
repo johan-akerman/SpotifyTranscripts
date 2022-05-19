@@ -1,3 +1,4 @@
+from crypt import methods
 from flask import Blueprint, jsonify, request
 from . import db
 from .models import Podcast
@@ -10,16 +11,6 @@ from pydub.silence import split_on_silence
 
 main = Blueprint("main", __name__)
 
-@main.route("/transcript_podcast", methods=["POST"])
-def transcript_podcast():
-    db.create_all()
-    podcast_data = request.get_json()
-    episodeUrl=podcast_data["url"]
-    new_podcast = Podcast(url=episodeUrl, transcript=transcribe_from_url(episodeUrl))
-    db.session.add(new_podcast)
-    db.session.commit()
-    return "Done", 201
-
 @main.route("/podcasts")
 def podcasts():
     podcasts_list = Podcast.query.all()
@@ -27,6 +18,22 @@ def podcasts():
     for podcast in podcasts_list:
         podcasts.append({"url": podcast.url, "transcript": podcast.transcript})
     return jsonify({"podcasts": podcasts})
+
+@main.route("/get_podcast", methods=["GET"])
+def get_podcast():
+    url = request.args.get("url")
+    print(url)
+    podcast_list = Podcast.query.all()
+    podcasts = []
+    for podcast in podcast_list:
+        podcasts.append({"url": podcast.url, "transcript": podcast.transcript})
+    
+    for podcast in podcast_list:
+        if podcast.url == url:
+            return podcast.transcript, 201
+    
+    return transcribe_from_url(url), 201
+
 
 r = sr.Recognizer()
 
