@@ -17,19 +17,11 @@ export default function Episode() {
   }, []);
 
   return (
-    <main className="bg-yellow-500 h-screen">
+    <main className="bg-yellow-500 max-h-screen overflow-scroll">
       <Navbar />
-      <div className="w-9/12 mx-auto">
-        <Form onNewTranscript={(transcript) => setTranscript(transcript)} />
 
-        <ul className="text-xl mt-20">
-          {/* {movies?.map((podcast, id) => {
-            return <li key={id}>{podcast.url}</li>;
-          })} */}
-        </ul>
-      </div>
       {transcript}
-      {/* {/* <Description /> */}
+
       <Transcript />
       <Footer />
     </main>

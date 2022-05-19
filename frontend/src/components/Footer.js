@@ -1,8 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import {
+  faBackwardStep,
   faFastBackward,
   faFastForward,
+  faForwardStep,
   faPlayCircle,
   faTimesCircle,
 } from "@fortawesome/free-solid-svg-icons";
@@ -11,30 +13,25 @@ import { Link } from "react-router-dom";
 export default function Footer() {
   const [value, setValue] = useState("");
   return (
-    <div className="w-full bg-yellow-500 absolute h-36 bottom-0 text-center text-2xl p-8">
-      <div className=" left-0 right-0 mx-auto">
-        <div className="w-full bg-yellow-400 h-1">
+    <div className="w-10/12 left-0 right-0 bg-yellow-500 absolute h-36 z-10 bottom-0 text-center text-2xl mx-auto py-8">
+      <div className="flex justify-between gap-3">
+        <span className="text-lg text-yellow-100 -mt-3">0:00</span>
+        <div className="w-full bg-yellow-400 h-1 rounded-full">
           <div className="bg-white h-1" style={{ width: "45%" }}></div>
         </div>
+        <span className="text-lg text-yellow-100 -mt-3">42:00</span>
+      </div>
 
-        <div className="justify-between flex mt-2 text-xs text-yellow-100">
-          <span>0:00</span>
-          <span>- 42:00</span>
-        </div>
-        <div>
-          {/* <FontAwesomeIcon
-            icon={faFastBackward}
-            className="mr-3 pb-1.5  text-3xl text-white"
-          /> */}
-          <FontAwesomeIcon
-            icon={faPlayCircle}
-            className="text-5xl text-white"
-          />
-          {/* <FontAwesomeIcon
-            icon={faFastForward}
-            className="ml-3 pb-1.5 text-3xl text-white"
-          /> */}
-        </div>
+      <div className="mt-4">
+        <FontAwesomeIcon
+          icon={faBackwardStep}
+          className="mr-6 pb-2.5  text-3xl text-white"
+        />
+        <FontAwesomeIcon icon={faPlayCircle} className="text-6xl text-white" />
+        <FontAwesomeIcon
+          icon={faForwardStep}
+          className="ml-6 pb-2.5 text-3xl text-white"
+        />
       </div>
     </div>
   );
