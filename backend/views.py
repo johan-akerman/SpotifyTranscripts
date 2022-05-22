@@ -73,7 +73,7 @@ def transcribe_from_url(url):
                 sentence = f"{sentence.capitalize()}. "
                 duration =  librosa.get_duration(filename=chunk_filename)
                 endTime = startTime + duration
-                transcript += "startTime: " + str(startTime) + "; endTime: " + str(endTime) + "; sentence: " + sentence
+                transcript += "startTime: " + str(startTime) + ";endTime: " + str(endTime) + ";sentence: " + sentence
                 startTime += duration
     
     # cleanup

@@ -1,56 +1,31 @@
 import Sentence from "./Sentence";
+import { useEffect, useState } from "react";
 
-export default function Transcript() {
-  let time = 8;
+export default function Transcript({ time, transcript }) {
+  const [currentTime, setCurrentTime] = useState(time);
+  const [currentTranscript, setCurrentTranscript] = useState([]);
+
+  useEffect(() => {
+    setCurrentTranscript(transcript);
+  }, [transcript]);
+
+  useEffect(() => {
+    setCurrentTime(time);
+  }, [time]);
 
   return (
-    <div className="w-10/12 mx-auto overflow-y-scroll pt-28">
-      <Sentence
-        text="Hello and welcome to the podcast."
-        time={time}
-        startTime={0.0}
-        endTime={9.0}
-      />
-      <Sentence
-        text="Today we will talk about american history."
-        time={time}
-        startTime={9.1}
-        endTime={21.0}
-      />
-      <Sentence
-        text="With me, I have Barack Obama."
-        time={time}
-        startTime={21.1}
-        endTime={30}
-      />
-
-      <Sentence
-        text="With me, I have Barack Obama."
-        time={time}
-        startTime={21.1}
-        endTime={30}
-      />
-
-      <Sentence
-        text="With me, I have Barack Obama."
-        time={time}
-        startTime={21.1}
-        endTime={30}
-      />
-
-      <Sentence
-        text="With me, I have Barack Obama."
-        time={time}
-        startTime={21.1}
-        endTime={30}
-      />
-
-      <Sentence
-        text="With me, I have Barack Obama."
-        time={time}
-        startTime={21.1}
-        endTime={30}
-      />
+    <div className="w-10/12 mx-auto pt-28">
+      {currentTranscript.map((obj) => {
+        return (
+          <Sentence
+            key={parseFloat(obj.startTime)}
+            startTime={parseFloat(obj.startTime)}
+            endTime={parseFloat(obj.endTime)}
+            text={obj.sentence}
+            time={time}
+          />
+        );
+      })}
     </div>
   );
 }
