@@ -16,9 +16,12 @@ export default function Transcript({ time, transcript }) {
   return (
     <div className="w-10/12 mx-auto pt-28">
       {currentTranscript.length == 0 ? (
-        <h1 className="text-3xl text-white text-center font-semibold mt-32">
-          🤖 Trascribing your podcast...
-        </h1>
+        <div className="mt-32">
+          <h1 className="text-center text-7xl mb-8">🤖 </h1>
+          <h1 className="text-2xl text-white text-center font-semibold">
+            Trascribing your podcast. Hang tight...
+          </h1>
+        </div>
       ) : (
         currentTranscript.map((obj) => {
           return (

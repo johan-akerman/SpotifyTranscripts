@@ -19,9 +19,6 @@ export default function Header() {
           <Link to="" className="px-5">
             About
           </Link>
-          <Link to="" className="px-5">
-            View code on Github
-          </Link>
 
           <Link to="" className="px-5">
             Send feedback

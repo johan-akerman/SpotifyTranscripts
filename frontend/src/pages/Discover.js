@@ -71,12 +71,12 @@ export default function Discover() {
             >
               Login to Spotify
             </a>
-          ) : (
-            <button onClick={logout}>Logout</button>
-          )}
+          ) : null
+          // <button onClick={logout}>Logout</button>
+          }
         </div>
 
-        <div className="text-center lg:w-10/12 w-12/12 pt-60 mb-32 mx-auto">
+        <div className="text-center lg:w-10/12 w-12/12 pt-40 mb-32 mx-auto">
           <h1 className="text-white text-5xl text-semibold tracking-wider mb-12">
             Seach for a podcast episode
           </h1>
