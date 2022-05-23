@@ -1,33 +1,55 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-
 export default function Home() {
-  const [value, setValue] = useState("");
+  const CLIENT_ID = "b548c518c6c547dc9d57995287a966f6";
+  const REDIRECT_URI = "http://localhost:3000/discover";
+  const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
+  const RESPONSE_TYPE = "token";
 
   return (
     <>
-      <main className="bg-black h-screen">
-        <div className="text-center lg:w-10/12 w-12/12 pt-60 pb-52 mx-auto ">
-          <h1 className="font-grotesk text-white text-6xl mx-auto sm:mt-5 font-bold md:mt-5 px-5 text-center">
-            Spotify Transcribe
-          </h1>
+      <div className="mx-auto grid grid-cols-5 gap-20 lg:w-10/12 w-12/12 pt-60">
+        <div className="col-span-2 pt-20 ">
+          <h1 className=" text-4xl font-bold">Spotify Transcripts</h1>
+          <p className="text-lg mt-4 mb-4">
+            Your interface for podcast transcripts, powered by Spotify and
+            Google Speech Recognition.
+          </p>
+          <p className="mb-12 text-gray-400 text-md">
+            A project by{" "}
+            <a
+              href="https://www.linkedin.com/in/johan-akerman/"
+              target="_blank"
+              className="hover:underline"
+            >
+              Johan Åkerman
+            </a>
+            . View{" "}
+            <a
+              href="https://github.com/johan-akerman/SpotifyTranscripts"
+              target="_blank"
+              className="hover:underline"
+            >
+              source code
+            </a>
+            .
+          </p>
 
-          <div className="mt-16 bg-white rounded-lg p-4 md:w-3/12 w-11/12 mx-auto">
-            <input
-              className="border-grey-light w-full p-3 rounded mb-4 focus:ring-primary focus:border-primary text-center border-black border-2 text-lg font-semibold"
-              type="text"
-              placeholder="Episode ID"
-              value={value}
-              onChange={(e) => setValue(e.target.value)}
-            />
-            <Link to="/episode">
-              <div className="bg-green-500 text-white px-5 py-3 rounded-lg cursor-pointer text-center text-lg font-semibold">
-                Enter
-              </div>
-            </Link>
-          </div>
+          <a
+            className="bg-green-500 text-white px-6 py-2.5 rounded-full cursor-pointer text-center text-sm font-semibold uppercase tracking-wider"
+            href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}
+          >
+            Log in with Spotify
+          </a>
         </div>
-      </main>
+
+        <div className="rounded-full col-span-3">
+          <video autoPlay muted className="rounded-lg shadow-2xl">
+            <source
+              src="https://discoverquickly.com/static/media/dq-promo.d66a23b7.mp4"
+              type="video/mp4"
+            />
+          </video>
+        </div>
+      </div>
     </>
   );
 }

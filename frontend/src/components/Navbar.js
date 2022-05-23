@@ -31,7 +31,7 @@ export default function Navbar() {
           />
         </div>
 
-        <Link to="/">
+        <Link to="/discover">
           <FontAwesomeIcon
             icon={faTimesCircle}
             className="mr-2 text-4xl text-white fixed top-4 right-10"

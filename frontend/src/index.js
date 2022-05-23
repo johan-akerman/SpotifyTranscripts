@@ -6,11 +6,13 @@ import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 import Episode from "./pages/Episode";
+import Discover from "./pages/Discover";
 
 ReactDOM.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" exact element={<Home />} />
+      <Route path="/discover" exact element={<Discover />} />
       <Route path="/episode" exact element={<Episode />} />
     </Routes>
   </BrowserRouter>,
