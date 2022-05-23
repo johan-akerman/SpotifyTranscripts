@@ -27,7 +27,7 @@ export default function Transcript({ time, transcript }) {
               startTime={parseFloat(obj.startTime)}
               endTime={parseFloat(obj.endTime)}
               text={obj.sentence}
-              time={time}
+              time={currentTime}
             />
           );
         })

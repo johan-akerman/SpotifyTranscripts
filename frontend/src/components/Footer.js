@@ -1,17 +1,14 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   faBackwardStep,
-  faFastBackward,
-  faFastForward,
   faForwardStep,
   faPlayCircle,
-  faTimesCircle,
 } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
 
-export default function Footer() {
-  const [value, setValue] = useState("");
+export default function Footer({ podcast }) {
+  const [audioUrl, setAudioUrl] = useState([]);
+
   return (
     <div className="w-full bg-yellow-500 absolute h-36 z-10 bottom-0 text-center text-2xl mx-auto py-8">
       <div className="w-10/12 mx-auto">
@@ -28,6 +25,7 @@ export default function Footer() {
             icon={faBackwardStep}
             className="mr-6 pb-2.5  text-3xl text-white"
           />
+
           <FontAwesomeIcon
             icon={faPlayCircle}
             className="text-6xl text-white"
