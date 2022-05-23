@@ -7,7 +7,8 @@ export default function Discover() {
   //   const [searchKey, setSearchKey] = useState("3h8EqupPbGuOiU405ryod3");
   const [searchKey, setSearchKey] = useState("");
   const [token, setToken] = useState("");
-  const [artists, setArtists] = useState([]);
+
+  const [episodes, setEpisodes] = useState([]);
   const CLIENT_ID = "b548c518c6c547dc9d57995287a966f6";
   const REDIRECT_URI = "http://localhost:3000/discover";
   const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
@@ -36,7 +37,7 @@ export default function Discover() {
     window.localStorage.removeItem("token");
   };
 
-  const searchArtists = async (e) => {
+  const searchEpisodes = async (e) => {
     e.preventDefault();
 
     const { data } = await axios.get("https://api.spotify.com/v1/search", {
@@ -45,20 +46,23 @@ export default function Discover() {
       },
       params: {
         q: searchKey,
-        type: "artist",
+        type: "episode",
       },
     });
 
-    setArtists(data.artists.items);
+    console.log(data.episodes.items);
+    setEpisodes(data.episodes.items);
   };
 
-  const renderArtists = () => {
-    return artists.map((artist) => <div key={artist.id}>{artist.name}</div>);
-  };
+  function msToMin(millis) {
+    var minutes = Math.floor(millis / 60000);
+
+    return minutes + " MIN";
+  }
 
   return (
     <>
-      <main className="bg-black h-screen">
+      <main className="bg-black min-h-screen">
         <Header />
         <div className="text-white text-lg">
           {!token ? (
@@ -72,12 +76,12 @@ export default function Discover() {
           )}
         </div>
 
-        <div className="text-center lg:w-10/12 w-12/12 pt-60 pb-52 mx-auto">
+        <div className="text-center lg:w-10/12 w-12/12 pt-60 mb-32 mx-auto">
           <h1 className="text-white text-5xl text-semibold tracking-wider mb-12">
             Seach for a podcast episode
           </h1>
-          <p className="text-white text-md mb-4">{"token: " + token}</p>
-          <form onSubmit={searchArtists} className="mb-8">
+
+          <form onSubmit={searchEpisodes} className="mb-8">
             <input
               className="w-96 border-grey-light p-3 rounded-lg focus:ring-primary focus:border-primary border-black border-2 text-lg font-semibold mr-3"
               type="text"
@@ -91,13 +95,30 @@ export default function Discover() {
               Search
             </button>
           </form>
-
-          <Link to="/episode" className="text-green-500">
-            Temp link to /episode
-          </Link>
         </div>
 
-        <div className="text-white text-md">{renderArtists()}</div>
+        <div className="text-white text-md grid grid-cols-5 gap-10 w-10/12 mx-auto pb-32">
+          {episodes.map((episode) => (
+            <Link
+              key={episode.id}
+              to="/episode"
+              class="max-w-sm rounded-md overflow-hidden shadow-lg bg-gray-900 hover:bg-gray-700 p-4"
+            >
+              <img class="w-full" src={episode.images[0].url} />
+              <div class="pt-5">
+                <h1 class="font-bold text-xl mb-2 overflow-ellipsis overflow-hidden whitespace-nowrap">
+                  {" "}
+                  {episode.name}
+                </h1>
+                <div className="flex justify-start gap-3">
+                  <p>{episode.release_date}</p>
+                  <p>-</p>
+                  <p>{msToMin(episode.duration_ms)}</p>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
       </main>
     </>
   );
