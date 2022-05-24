@@ -56,7 +56,8 @@ export default function Discover() {
           <Link
             key={episode.id}
             to="/episode"
-            class="max-w-sm rounded-md overflow-hidden shadow-lg bg-gray-900 hover:bg-gray-700 p-4"
+            state={episode}
+            className="max-w-sm rounded-md overflow-hidden shadow-lg bg-gray-900 hover:bg-gray-700 p-4"
           >
             <img className="w-full" src={episode.images[0].url} />
             <div className="pt-5">

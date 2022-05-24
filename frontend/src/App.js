@@ -8,8 +8,6 @@ import Discover from "./pages/Discover";
 function App() {
   const token = useAuth();
 
-  console.log("token: " + token);
-
   return (
     <BrowserRouter>
       <Routes>
