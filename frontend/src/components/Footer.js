@@ -1,7 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import ReactAudioPlayer from "react-audio-player";
-
-import { useEffect, useState, useRef } from "react";
+import { useState, useRef } from "react";
 import {
   faBackwardStep,
   faForwardStep,
@@ -56,7 +54,9 @@ export default function Footer({ episode, updateTime }) {
 
       <div className="w-10/12 mx-auto">
         <div className="flex justify-between gap-3">
-          <span className="text-lg text-yellow-100">0:00</span>
+          <span className="text-lg text-yellow-100">
+            {(Math.floor(time) < 10 ? "0:0" : "0:") + Math.floor(time)}
+          </span>
 
           <input
             type="range"
@@ -68,7 +68,7 @@ export default function Footer({ episode, updateTime }) {
             onChange={(e) => changeTime(e.target.value)}
           />
 
-          <span className="text-lg text-yellow-100">0:30</span>
+          <span className="text-lg text-yellow-100">0:30 </span>
         </div>
 
         <div className="mt-4">

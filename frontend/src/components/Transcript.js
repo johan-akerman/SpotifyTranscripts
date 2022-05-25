@@ -14,7 +14,7 @@ export default function Transcript({ time, transcript }) {
   }, [time]);
 
   return (
-    <div className="w-10/12 mx-auto pt-28">
+    <div className="w-10/12 mx-auto mt-40 pb-40">
       {currentTranscript.length == 0 ? (
         <div className="mt-32">
           <h1 className="text-center text-7xl mb-8">🤖 </h1>
