@@ -11,7 +11,19 @@ export default function Episode(props) {
   console.log(episode);
 
   const [transcript, setTranscript] = useState([]);
-  const [time, setTime] = useState(12.0);
+  const [time, setTime] = useState(0);
+
+  function updateTime(newTime) {
+    if (newTime < 0) {
+      setTime(0);
+    } else if (newTime > 30) {
+      setTime(30);
+    } else {
+      setTime(newTime);
+    }
+
+    console.log(time);
+  }
 
   // let urlExample =
   //   "https://p.scdn.co/mp3-preview/9043b63e9636efb5842b349db06ead41e7580d22";
@@ -45,7 +57,7 @@ export default function Episode(props) {
     <main className="bg-yellow-500 h-screen overflow-scroll">
       <Navbar />
       <Transcript time={time} transcript={transcript} />
-      <Footer time={time} />
+      <Footer time={time} episode={episode} updateTime={updateTime} />
     </main>
   );
 }
