@@ -1,13 +1,5 @@
-import { useEffect, useState } from "react";
-
-export default function Description({ podcast }) {
-  const [episode, setEpisode] = useState({});
-
-  useEffect(() => {
-    setEpisode(podcast);
-    console.log(podcast);
-  }, [podcast]);
-
+export default function Description({ episode }) {
+  console.log(episode);
   return (
     <div className="w-10/12 mx-auto flex mt-12 mb-16 relative">
       {episode ? (

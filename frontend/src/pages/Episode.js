@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import Description from "../components/Description";
 
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
@@ -10,7 +11,8 @@ export default function Episode(props) {
   const episode = location.state;
   console.log(episode);
 
-  const [transcript, setTranscript] = useState([]);
+  const [transcript, setTranscript] = useState("");
+  const [transcriptAsString, setTranscriptAsString] = useState("");
   const [time, setTime] = useState(0);
 
   function updateTime(newTime) {
@@ -48,6 +50,11 @@ export default function Episode(props) {
           sentence: tmpArray[2].substring(tmpArray[2].indexOf(" ") + 1),
         };
 
+        setTranscriptAsString(
+          transcriptAsString +
+            " " +
+            tmpArray[2].substring(tmpArray[2].indexOf(" ") + 1)
+        );
         setTranscript((transcript) => [...transcript, obj]);
       });
     }
@@ -55,9 +62,23 @@ export default function Episode(props) {
 
   return (
     <main className="bg-yellow-500 h-screen overflow-scroll">
-      <Navbar />
-      <Transcript time={time} transcript={transcript} />
-      <Footer time={time} episode={episode} updateTime={updateTime} />
+      {transcript.length === 0 ? (
+        <div className="mt-64">
+          <h1 className="text-center text-7xl mb-2 animate-bounce">🤖</h1>
+          <h1 className="text-2xl text-white text-center font-semibold">
+            Trascribing your podcast. Hang tight...
+          </h1>
+        </div>
+      ) : (
+        <>
+          <Navbar
+            transcript={transcript}
+            transcriptAsString={transcriptAsString}
+          />
+          <Transcript time={time} transcript={transcript} />
+          <Footer time={time} episode={episode} updateTime={updateTime} />
+        </>
+      )}
     </main>
   );
 }

@@ -32,12 +32,12 @@ export default function Discover() {
 
       <div className="text-center lg:w-10/12 w-12/12 pt-40 mb-32 mx-auto">
         <h1 className="text-white text-5xl text-semibold tracking-wider mb-12">
-          Seach for a podcast episode
+          Seach for a podcast
         </h1>
 
         <form onSubmit={searchEpisodes} className="mb-8">
           <input
-            className="w-96 border-grey-light p-3 rounded-lg focus:ring-primary focus:border-primary border-black border-2 text-lg font-semibold mr-3"
+            className="w-96 border-grey-light p-3 rounded-lg focus:ring-primary focus:border-primary border-black border-2 text-lg font-semibold mr-3 outline-none"
             type="text"
             placeholder="Search  . . ."
             onChange={(e) => setSearchKey(e.target.value)}

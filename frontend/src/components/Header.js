@@ -1,6 +1,4 @@
 import logo from "../images/logo.png";
-import { useState } from "react";
-import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
@@ -12,14 +10,14 @@ export default function Header() {
             Transcripts
           </h1>
         </div>
-        <div className="text-white flex">
-          <Link to="" className="px-5">
+        <div className="text-white flex text-lg">
+          <a
+            href="https://github.com/johan-akerman/SpotifyTranscripts"
+            target="_blank"
+            className="px-5 cursor-pointer"
+          >
             About
-          </Link>
-
-          <Link to="" className="px-5">
-            Send feedback
-          </Link>
+          </a>
 
           <a
             className="px-5 hover:cursor-pointer"

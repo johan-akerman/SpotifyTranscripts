@@ -54,7 +54,7 @@ export default function Footer({ episode, updateTime }) {
 
       <div className="w-10/12 mx-auto">
         <div className="flex justify-between gap-3">
-          <span className="text-lg text-yellow-100">
+          <span className="text-lg text-yellow-100 -mt-2.5">
             {(Math.floor(time) < 10 ? "0:0" : "0:") + Math.floor(time)}
           </span>
 
@@ -64,11 +64,11 @@ export default function Footer({ episode, updateTime }) {
             step="1"
             min="0"
             max="30"
-            className="w-full"
+            className="w-full h-2 bg-yellow-600 appearance-none rounded accent-white"
             onChange={(e) => changeTime(e.target.value)}
           />
 
-          <span className="text-lg text-yellow-100">0:30 </span>
+          <span className="text-lg text-yellow-100 -mt-2.5">0:30 </span>
         </div>
 
         <div className="mt-4">

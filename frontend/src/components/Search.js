@@ -7,9 +7,11 @@ const people = [
   { id: 3, name: "Devon Webb" },
 ];
 
-export default function Search() {
+export default function Search({ transcript, transcriptAsString }) {
   const [selected, setSelected] = useState("");
   const [query, setQuery] = useState("");
+
+  console.log(transcriptAsString);
 
   const filteredPeople =
     query === ""
@@ -56,7 +58,7 @@ export default function Search() {
             <Combobox.Options className="absolute mt-2 max-h-60 w-full overflow-auto rounded-xl bg-white py-1 ring-1 border-2 border-black ring-opacity-5 focus:outline-none sm:text-sm">
               {filteredPeople.length === 0 && query !== "" ? (
                 <div className="relative cursor-default select-none py-3 px-5 text-gray-700 text-lg">
-                  Nothing found.
+                  Nothing found 😔
                 </div>
               ) : (
                 filteredPeople.map((person) => (
