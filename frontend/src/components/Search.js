@@ -11,6 +11,7 @@ export default function Search({ transcript, transcriptAsString }) {
   const [selected, setSelected] = useState("");
   const [query, setQuery] = useState("");
 
+  console.log(transcript);
   console.log(transcriptAsString);
 
   const filteredPeople =

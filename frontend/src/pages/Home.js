@@ -1,9 +1,10 @@
 export default function Home() {
-  const CLIENT_ID = "b548c518c6c547dc9d57995287a966f6";
+  const CLIENT_ID = process.env.REACT_APP_SPOTFY_CLIENT_ID;
   const REDIRECT_URI = "http://localhost:3000/discover";
   const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
   const RESPONSE_TYPE = "token";
 
+  console.log(CLIENT_ID);
   return (
     <div className="mx-auto grid grid-cols-5 gap-20 lg:w-10/12 w-12/12 pt-60">
       <div className="col-span-2 pt-20 ">
