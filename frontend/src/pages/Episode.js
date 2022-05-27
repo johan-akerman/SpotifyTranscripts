@@ -61,7 +61,7 @@ export default function Episode(props) {
   }, []);
 
   return (
-    <main className="bg-yellow-500 h-screen overflow-scroll">
+    <main className="bg-spotifyOrangeDark h-screen overflow-scroll">
       {transcript.length === 0 ? (
         <div className="mt-64">
           <h1 className="text-center text-7xl mb-2 animate-bounce">🤖</h1>

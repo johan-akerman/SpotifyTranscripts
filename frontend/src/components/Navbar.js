@@ -6,7 +6,7 @@ import Search from "./Search";
 
 export default function Navbar({ transcript, transcriptAsString }) {
   return (
-    <div className="w-full bg-yellow-500 left-0 right-0 fixed z-10 pb-4">
+    <div className="w-full bg-spotifyOrangeDark left-0 right-0 fixed z-10 pb-4">
       <div className="w-10/12 mx-auto flex items-center justify-center h-20">
         <Search
           transcript={transcript}

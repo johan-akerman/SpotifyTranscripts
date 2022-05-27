@@ -43,7 +43,7 @@ export default function Footer({ episode, updateTime }) {
   };
 
   return (
-    <div className="w-full bg-yellow-500 absolute  z-10 bottom-0 text-center text-2xl mx-auto py-8">
+    <div className="w-full bg-spotifyOrangeDark absolute  z-10 bottom-0 text-center text-2xl mx-auto py-8">
       <audio id="Player" className="mb-16">
         <source
           src={episode.audio_preview_url}

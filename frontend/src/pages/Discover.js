@@ -27,7 +27,7 @@ export default function Discover() {
   };
 
   return (
-    <main className="bg-black min-h-screen">
+    <main className="bg-spotifyDarkGray min-h-screen">
       <Header />
 
       <div className="text-center lg:w-10/12 w-12/12 pt-40 mb-32 mx-auto">
@@ -43,7 +43,7 @@ export default function Discover() {
             onChange={(e) => setSearchKey(e.target.value)}
           />
           <button
-            className="bg-green-500 text-white px-5 rounded-lg py-3 cursor-pointer text-center text-lg font-semibold"
+            className="bg-spotifyLightGreen hover:bg-spotifyDarkGreen text-white px-5 rounded-lg py-3 cursor-pointer text-center text-lg font-semibold tracking-wide"
             type={"submit"}
           >
             Search
@@ -51,22 +51,22 @@ export default function Discover() {
         </form>
       </div>
 
-      <div className="text-white text-md grid grid-cols-5 gap-10 w-10/12 mx-auto pb-32">
+      <div className="text-white text-md grid grid-cols-5 gap-8 w-10/12 mx-auto pb-32">
         {episodes.map((episode) => (
           <Link
             key={episode.id}
             to="/episode"
             state={episode}
-            className="max-w-sm rounded-md overflow-hidden shadow-lg bg-gray-900 hover:bg-gray-700 p-4"
+            className="max-w-sm rounded-md overflow-hidden shadow-lg bg-spotifyMediumGray hover:bg-spotifyLightGray p-3.5"
           >
-            <img className="w-full" src={episode.images[0].url} />
-            <div className="pt-5">
-              <h1 className="font-bold text-xl mb-2 overflow-ellipsis overflow-hidden whitespace-nowrap">
+            <img className="w-full rounded" src={episode.images[0].url} />
+            <div className="pt-3">
+              <h1 className="font-medium text-lg mb-1 overflow-ellipsis overflow-hidden whitespace-nowrap">
                 {episode.name}
               </h1>
-              <div className="flex justify-start gap-3">
+              <div className="flex justify-starttext-xs gap-1 opacity-50 mb-3">
                 <p>{episode.release_date}</p>
-                <p>-</p>
+                <p>, </p>
                 <p>{Math.floor(episode.duration_ms / 60000) + " MIN"}</p>
               </div>
             </div>

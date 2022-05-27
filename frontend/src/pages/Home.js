@@ -7,8 +7,8 @@ export default function Home() {
   console.log(CLIENT_ID);
   return (
     <div className="mx-auto grid grid-cols-5 gap-20 lg:w-10/12 w-12/12 pt-60">
-      <div className="col-span-2 pt-20 ">
-        <h1 className=" text-4xl font-bold">Spotify Transcripts</h1>
+      <div className="col-span-2 pt-16 ">
+        <h1 className="text-5xl font-bold">Spotify Transcripts</h1>
         <p className="text-lg mt-4 mb-4">
           Your interface for podcast transcripts, powered by Spotify and Google
           Speech Recognition.
@@ -34,7 +34,7 @@ export default function Home() {
         </p>
 
         <a
-          className="bg-green-500 text-white px-6 py-2.5 rounded-full cursor-pointer text-center text-sm font-semibold uppercase tracking-wider"
+          className="bg-spotifyLightGreen hover:bg-spotifyDarkGreen text-white px-6 py-2.5 rounded-full cursor-pointer text-center text-sm font-semibold uppercase tracking-wider"
           href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}
         >
           Log in with Spotify

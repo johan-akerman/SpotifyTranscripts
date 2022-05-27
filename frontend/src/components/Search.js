@@ -44,7 +44,7 @@ export default function Search({ transcript, transcriptAsString }) {
 
           <Combobox.Input
             placeholder="Search transcript"
-            className="focus:border-2 border-black w-full rounded-xl py-4 bg-yellow-400 pl-12 pr-5 text-lg leading-5 text-yellow-800 placeholder-yellow-800 focus:placeholder-black focus:text-black focus:bg-white outline-none"
+            className="focus:border-2 border-black w-full rounded-xl py-4 bg-spotifyOrangeLight pl-12 pr-5 text-lg leading-5 text-yellow-800 placeholder-yellow-800 focus:placeholder-black focus:text-black focus:bg-white outline-none"
             displayValue={(person) => person.name}
             onChange={(event) => setQuery(event.target.value)}
           />
