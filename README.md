@@ -4,7 +4,7 @@ Combines Google speech recognition and the Spotify API to transcribe your favour
 https://user-images.githubusercontent.com/44551216/170843792-813e5671-adb2-4bf1-b1d7-789de7c0ae09.mp4
 
 ## 📖 Story behind the project
-During the summer of 2020 I participated in Spotify's summer hackathon and developed [Spotify Topics](https://github.com/johan-akerman/SpotifyTopics) , a tool that let's you fast forward to timestamps where certain topics are being discussed in a podcast episode. Since then, I have been thinking about how Spotify's podcast experience could be improved further by transcribing each episode. I scrolled through the Spotify Community and discovered [Subtitles for Podcasts](https://community.spotify.com/t5/Live-Ideas/Podcasts-Subtitles-for-Podcasts/idi-p/5200537), a great feature idea with an eye-catching 4290 upvotes 👀 
+During the summer of 2020 I participated in Spotify's summer hackathon and developed [Spotify Topics](https://github.com/johan-akerman/SpotifyTopics), a tool that let's you fast forward to timestamps where certain topics are being discussed in a podcast episode. Since then, I have been thinking about how Spotify's podcast experience could be improved further by transcribing each episode. I scrolled through the Spotify Community and discovered [Subtitles for Podcasts](https://community.spotify.com/t5/Live-Ideas/Podcasts-Subtitles-for-Podcasts/idi-p/5200537), a great feature idea with an eye-catching 4290 upvotes 👀 
 
 <img src="/misc/readme/6.png" 
 	title="Gif" width="800" />
