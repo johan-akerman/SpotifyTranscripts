@@ -12,7 +12,7 @@ During the summer of 2020 I participated in Spotify's summer hackathon and devel
 ## ⚙️ Technologies used
 I wanted to get more into backend development and Python so instead of finding a plug-and-play web api for speech recognition, I decided to do some overengineering by building my own REST API. 
 
-More specifically, my REST API downloads a podcast in mp3 format and converts it into wov format. The wov file is divided into sentences (multiple smaller audio files) by listening for a silence (500 ms of noice below 14 decibels) that indicates the end of a sentence. Each new smaller audio file is sent into the Google Speech Recognition API. As a result, my API returns each transcribed sentence together with it's start- and endtime. 
+More specifically, my REST API downloads a podcast in mp3 format and converts it into wov format. The wov file is divided into sentences (multiple smaller audio files) by listening for a silence (500 ms of audio below 14 decibels) that indicates the end of a sentence. Each new smaller audio file is sent into the Google Speech Recognition API. As a result, my API returns each transcribed sentence together with it's start- and endtime. 
 
 The backend is connected to a frontend through Flask. The frontend is built in React and styled with Tailwind CSS. The data for each Podcast episode is fetched with the Spotify Web API.
 
