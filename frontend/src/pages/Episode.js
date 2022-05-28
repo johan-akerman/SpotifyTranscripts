@@ -12,7 +12,6 @@ export default function Episode(props) {
   console.log(episode);
 
   const [transcript, setTranscript] = useState("");
-  const [transcriptAsString, setTranscriptAsString] = useState("");
   const [time, setTime] = useState(0);
 
   function updateTime(newTime) {
@@ -50,11 +49,6 @@ export default function Episode(props) {
           sentence: tmpArray[2].substring(tmpArray[2].indexOf(" ") + 1),
         };
 
-        setTranscriptAsString(
-          transcriptAsString +
-            " " +
-            tmpArray[2].substring(tmpArray[2].indexOf(" ") + 1)
-        );
         setTranscript((transcript) => [...transcript, obj]);
       });
     }
@@ -65,16 +59,13 @@ export default function Episode(props) {
       {transcript.length === 0 ? (
         <div className="mt-64">
           <h1 className="text-center text-7xl mb-2 animate-bounce">🤖</h1>
-          <h1 className="text-2xl text-white text-center font-semibold">
+          <h1 className="text-2xl text-black text-center font-semibold">
             Trascribing your podcast. Hang tight...
           </h1>
         </div>
       ) : (
         <>
-          <Navbar
-            transcript={transcript}
-            transcriptAsString={transcriptAsString}
-          />
+          <Navbar transcript={transcript} updateTime={updateTime} />
           <Transcript time={time} transcript={transcript} />
           <Footer time={time} episode={episode} updateTime={updateTime} />
         </>

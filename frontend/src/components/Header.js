@@ -1,4 +1,4 @@
-import logo from "../images/logo.png";
+import logo from "../images/logo_white.png";
 
 export default function Header() {
   return (
@@ -6,7 +6,7 @@ export default function Header() {
       <div className="w-10/12 mx-auto flex items-center justify-between h-20">
         <div className="flex">
           <img src={logo} className="w-32" />
-          <h1 className="text-white font-light text-2xl mt-1 ml-2">
+          <h1 className="text-white font-normal text-2xl mt-1 ml-1">
             Transcripts
           </h1>
         </div>

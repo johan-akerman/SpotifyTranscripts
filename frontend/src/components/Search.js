@@ -7,22 +7,33 @@ const people = [
   { id: 3, name: "Devon Webb" },
 ];
 
-export default function Search({ transcript, transcriptAsString }) {
+export default function Search({ transcript, updateTime }) {
   const [selected, setSelected] = useState("");
   const [query, setQuery] = useState("");
+  const [result, setResult] = useState([]);
 
-  console.log(transcript);
-  console.log(transcriptAsString);
+  function search(word) {
+    let tmp = [];
+    transcript.map((row) => {
+      let index = row.sentence.toLowerCase().indexOf(word);
 
-  const filteredPeople =
-    query === ""
-      ? people
-      : people.filter((person) =>
-          person.name
-            .toLowerCase()
-            .replace(/\s+/g, "")
-            .includes(query.toLowerCase().replace(/\s+/g, ""))
-        );
+      if (index === -1) {
+        return;
+      }
+
+      let obj = {
+        word: word,
+        reminder: row.sentence.substring(index + word.length),
+        startTime: row.startTime,
+        endTime: row.endTime,
+      };
+
+      tmp.push(obj);
+
+      setResult(tmp);
+      console.log(result);
+    });
+  }
 
   return (
     <div className="w-1/2 relative text-yellow-800 focus-within:text-gray-900">
@@ -46,7 +57,7 @@ export default function Search({ transcript, transcriptAsString }) {
             placeholder="Search transcript"
             className="focus:border-2 border-black w-full rounded-xl py-4 bg-spotifyOrangeLight pl-12 pr-5 text-lg leading-5 text-yellow-800 placeholder-yellow-800 focus:placeholder-black focus:text-black focus:bg-white outline-none"
             displayValue={(person) => person.name}
-            onChange={(event) => setQuery(event.target.value)}
+            onChange={(event) => search(event.target.value)}
           />
 
           <Transition
@@ -57,30 +68,30 @@ export default function Search({ transcript, transcriptAsString }) {
             afterLeave={() => setQuery("")}
           >
             <Combobox.Options className="absolute mt-2 max-h-60 w-full overflow-auto rounded-xl bg-white py-1 ring-1 border-2 border-black ring-opacity-5 focus:outline-none sm:text-sm">
-              {filteredPeople.length === 0 && query !== "" ? (
+              {result.length === 0 && query !== "" ? (
                 <div className="relative cursor-default select-none py-3 px-5 text-gray-700 text-lg">
                   Nothing found 😔
                 </div>
               ) : (
-                filteredPeople.map((person) => (
+                result.map((row, id) => (
                   <Combobox.Option
-                    key={person.id}
+                    key={id}
                     className={({ active }) =>
                       `relative cursor-pointer select-none py-2 px-5 text-lg ${
                         active ? "bg-gray-100" : ""
                       }`
                     }
-                    value={person}
+                    value={id}
+                    onClick={() => updateTime(row.startTime)}
                   >
                     <div className="grid grid-cols-5 gap-2">
                       <div className="col-span-4 overflow-ellipsis overflow-hidden whitespace-nowrap">
-                        <span className="font-bold">{person.name}</span>{" "}
-                        <span className="opacity-50">
-                          hej jag heter asdfasdfasdfasdfasdf asdf asdfa dsfa sdf
-                          asdf
-                        </span>
+                        <span className="font-bold">{row.word}</span>
+                        <span className="opacity-50">{row.reminder}</span>
                       </div>
-                      <div className="col-span-1 text-right">0:00 - 0:13</div>
+                      <div className="col-span-1 text-right">
+                        {Math.floor(row.startTime)} - {Math.floor(row.endTime)}
+                      </div>
                     </div>
                   </Combobox.Option>
                 ))
