@@ -1,10 +1,11 @@
+import demo from "../images/demo.mp4";
+
 export default function Home() {
   const CLIENT_ID = process.env.REACT_APP_SPOTFY_CLIENT_ID;
   const REDIRECT_URI = "http://localhost:3000/discover";
   const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
   const RESPONSE_TYPE = "token";
 
-  console.log(CLIENT_ID);
   return (
     <div className="mx-auto grid grid-cols-5 gap-20 lg:w-10/12 w-12/12 pt-60">
       <div className="col-span-2 pt-16 ">
@@ -43,10 +44,7 @@ export default function Home() {
 
       <div className="rounded-full col-span-3">
         <video autoPlay muted className="rounded-lg shadow-2xl">
-          <source
-            src="https://discoverquickly.com/static/media/dq-promo.d66a23b7.mp4"
-            type="video/mp4"
-          />
+          <source src={demo} type="video/mp4" />
         </video>
       </div>
     </div>

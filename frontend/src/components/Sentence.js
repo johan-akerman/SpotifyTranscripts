@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 export default function Sentence({ text, time, startTime, endTime }) {
-  const currentSentence = time > startTime && time < endTime;
+  const currentSentence = time >= startTime && time < endTime;
 
   useEffect(() => {
     if (currentSentence) {

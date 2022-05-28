@@ -57,6 +57,7 @@ export default function Search({ transcript, updateTime }) {
             placeholder="Search transcript"
             className="focus:border-2 border-black w-full rounded-xl py-4 bg-spotifyOrangeLight pl-12 pr-5 text-lg leading-5 text-yellow-800 placeholder-yellow-800 focus:placeholder-black focus:text-black focus:bg-white outline-none"
             displayValue={(person) => person.name}
+            autoComplete="off"
             onChange={(event) => search(event.target.value)}
           />
 
@@ -90,7 +91,12 @@ export default function Search({ transcript, updateTime }) {
                         <span className="opacity-50">{row.reminder}</span>
                       </div>
                       <div className="col-span-1 text-right">
-                        {Math.floor(row.startTime)} - {Math.floor(row.endTime)}
+                        0:
+                        {(row.startTime < 10 ? "0" : null) +
+                          Math.floor(row.startTime)}{" "}
+                        - 0:
+                        {(row.endTime < 10 ? "0" : null) +
+                          Math.floor(row.endTime)}
                       </div>
                     </div>
                   </Combobox.Option>

@@ -9,7 +9,6 @@ import Transcript from "../components/Transcript";
 export default function Episode(props) {
   const location = useLocation();
   const episode = location.state;
-  console.log(episode);
 
   const [transcript, setTranscript] = useState("");
   const [time, setTime] = useState(0);
@@ -23,11 +22,8 @@ export default function Episode(props) {
       setTime(newTime);
     }
 
-    console.log(time);
+    console.log("updated time: " + time);
   }
-
-  // let urlExample =
-  //   "https://p.scdn.co/mp3-preview/9043b63e9636efb5842b349db06ead41e7580d22";
 
   useEffect(async () => {
     const response = await fetch(

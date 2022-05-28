@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import {
   faBackwardStep,
   faForwardStep,
@@ -7,12 +7,19 @@ import {
   faPlayCircle,
 } from "@fortawesome/free-solid-svg-icons";
 
-export default function Footer({ episode, updateTime }) {
-  const [time, setTime] = useState(0);
+export default function Footer({ episode, updateTime, time }) {
   const [playing, setPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   let player = document.getElementById("Player");
   const intervalRef = useRef();
+
+  useEffect(() => {
+    let player = document.getElementById("Player");
+    player.currentTime = time;
+    setProgress(player.currentTime);
+  }, [time]);
+
+  console.log("footer time: " + time);
 
   function togglePlay(playing) {
     if (playing) {
@@ -31,15 +38,8 @@ export default function Footer({ episode, updateTime }) {
 
     intervalRef.current = setInterval(() => {
       setProgress(player.currentTime);
-      setTime(player.currentTime);
       updateTime(player.currentTime);
     }, [1000]);
-  };
-
-  const changeTime = (value) => {
-    player.currentTime = value;
-    setProgress(player.currentTime);
-    setTime(value);
   };
 
   return (
@@ -65,7 +65,7 @@ export default function Footer({ episode, updateTime }) {
             min="0"
             max="30"
             className="w-full h-2 bg-yellow-600 appearance-none rounded accent-white"
-            onChange={(e) => changeTime(e.target.value)}
+            onChange={(e) => updateTime(e.target.value)}
           />
 
           <span className="text-lg text-yellow-100 -mt-2.5">0:30 </span>
@@ -74,7 +74,7 @@ export default function Footer({ episode, updateTime }) {
         <div className="mt-4">
           <FontAwesomeIcon
             icon={faBackwardStep}
-            onClick={() => changeTime(time - 10)}
+            onClick={() => updateTime(time - 10)}
             className="mr-6 pb-2.5  text-3xl text-white"
           />
 
@@ -85,7 +85,7 @@ export default function Footer({ episode, updateTime }) {
           />
           <FontAwesomeIcon
             icon={faForwardStep}
-            onClick={() => changeTime(time + 10)}
+            onClick={() => updateTime(time + 10)}
             className="ml-6 pb-2.5 text-3xl text-white"
           />
         </div>
