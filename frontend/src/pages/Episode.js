@@ -56,7 +56,7 @@ export default function Episode(props) {
         <div className="mt-64">
           <h1 className="text-center text-7xl mb-2 animate-bounce">🤖</h1>
           <h1 className="text-2xl text-black text-center font-semibold">
-            Trascribing your podcast. Hang tight...
+            Transcribing your podcast. Hang tight...
           </h1>
         </div>
       ) : (
