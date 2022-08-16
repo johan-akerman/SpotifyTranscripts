@@ -12,9 +12,11 @@ During the summer of 2020 I participated in Spotify's summer hackathon and devel
 ## ⚙️ Technologies used
 I wanted to get more into backend development and Python so instead of finding a plug-and-play web api for speech recognition, I decided to do some overengineering by building my own API. 
 
-More specifically, my API downloads a podcast in mp3 format and converts it into wov format. The wov file is divided into sentences (multiple smaller audio files) by listening for a silence that indicates the end of a sentence  (500 ms of audio below 14 decibels). Each new smaller audio file is sent into the Google Speech Recognition API that converts speech to text. As a result, my API returns each transcribed sentence together with it's start- and endtime. 
+More specifically, my API makes a call to the Spotify API and downloads the requested podcast. In order to show the subtitles at the right time when playing the podcast, we need to get the start- and end time of each word or sentence. This turned out to be trickier than expected... 
 
-The backend is connected to a frontend through Flask. The frontend is built in React and styled with Tailwind CSS. The data for each Podcast episode is fetched with the Spotify Web API.
+To solve the problem, I divided the original audio file into multiple smaller ones. To eliminate the risk of cutting the audio file mid sentence, my API listens for a silence of 500ms below 14 decibels before cutting. By doing this, I was able to measure the duration of each smaller audio file and as a result, calculate a start- and endtime of each sentence. Each new smaller audio file is sent to the Google Speech Recognition API that converts speech to text. As a result, my API returns each transcribed sentence together with it's start- and endtime. 
+
+The backend is connected to a frontend through Flask. The frontend is built in React and styled with Tailwind CSS.
 
 ## 📸 Screenshots
 <img src="/misc/readme/1.png"
