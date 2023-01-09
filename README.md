@@ -17,6 +17,21 @@ To solve the problem, I divided the original audio file into multiple smaller on
 
 The backend is connected to a frontend through Flask. The frontend is built in React and styled with Tailwind CSS.
 
+## 🚀 How to run the program
+
+### Backend
+```
+export FLASK_APP=backend
+export FLASK_DEBUG=1
+flask run
+```
+
+### Frontend
+```
+npm start
+```
+
+
 ## 📸 Screenshots
 <img src="/misc/readme/1.png"
 	title="1" width="800" /> 
