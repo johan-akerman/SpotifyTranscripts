@@ -11,7 +11,10 @@ Spotify Transcripts
 Improving Spotify’s podcast experience with AI. 
 <h4>
 
-https://user-images.githubusercontent.com/44551216/170843792-813e5671-adb2-4bf1-b1d7-789de7c0ae09.mp4
+
+https://github.com/johan-akerman/SpotifyTranscripts/assets/44551216/a1cd7e18-66f7-4084-a547-600d363bbe29
+
+
 
 
 
@@ -134,7 +137,7 @@ npm start
 <p align="center">
  <img src="/misc/readme/6.png"
 	title="6" width="800" /> 
- <p align="center">Subtitles in full screen
+ <p align="center">Subtitles in fullscreen
 </p>
 <br />
 </p>
