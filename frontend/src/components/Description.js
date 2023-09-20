@@ -1,23 +1,29 @@
+import { useState } from "react";
+
 export default function Description({ episode }) {
-  console.log(episode);
-  return (
-    <div className="w-10/12 mx-auto flex mt-12 mb-16 relative">
-      {episode ? (
-        <>
-          <img
-            className="h-20 w-20 rounded-sm shadow-xl"
-            src={episode?.images[0].url}
-          />
-          <div className="pt-5 pl-6">
-            <h1 className="text-4xl text-white font-semibold">
-              {episode?.name}
-            </h1>
-            <p className="text-sm text-white font-semibold">
-              {episode?.show.name}
-            </p>
-          </div>
-        </>
-      ) : null}
-    </div>
-  );
+  const [showFullDescription, setShowFullDescription] = useState(false);
+
+  if (episode) {
+    return (
+      <div className="mt-12 w-full">
+        <h1 className="text-white text-2xl">Description</h1>
+        <p className="opacity-60 mt-3 w-4/5">
+          {showFullDescription
+            ? episode?.description
+            : episode?.description.slice(0, 200) + "..."}
+        </p>
+
+        {!showFullDescription ? (
+          <p
+            className="text-md font-semibold mt-3 cursor-pointer"
+            onClick={() => setShowFullDescription(!showFullDescription)}
+          >
+            ... Read more
+          </p>
+        ) : (
+          ""
+        )}
+      </div>
+    );
+  }
 }

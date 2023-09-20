@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import Header from "../components/Header";
+import Header from "../components/old/Header";
 import { useAuth } from "../hooks/useAuth";
 
 export default function Discover() {
@@ -22,7 +22,6 @@ export default function Discover() {
       },
     });
 
-    console.log(data.episodes.items);
     setEpisodes(data.episodes.items);
   };
 
@@ -55,7 +54,7 @@ export default function Discover() {
         {episodes.map((episode) => (
           <Link
             key={episode.id}
-            to="/episode"
+            to="/dashboard"
             state={episode}
             className="max-w-sm rounded-md overflow-hidden shadow-lg bg-spotifyMediumGray hover:bg-spotifyLightGray p-3.5"
           >

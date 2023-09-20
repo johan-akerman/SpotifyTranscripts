@@ -2,10 +2,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        black: "#191414",
         spotifyDarkGreen: "#1db954",
         spotifyLightGreen: "#1ed760",
-        spotifyDarkGray: "#151515",
+        spotifyDarkGray: "#121212",
         spotifyMediumGray: "#181818",
         spotifyLightGray: "#282828",
         spotifyOrangeLight: "#FFC864",

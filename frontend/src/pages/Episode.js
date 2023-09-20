@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import Description from "../components/Description";
-
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
-import Transcript from "../components/Transcript";
+import Footer from "../components/old/Footer";
+import Navbar from "../components/old/Navbar";
+import Transcript from "../components/old/Transcript";
 
 export default function Episode(props) {
   const location = useLocation();
@@ -26,6 +24,8 @@ export default function Episode(props) {
   }
 
   useEffect(async () => {
+    console.log(episode.audio_preview_url);
+
     const response = await fetch(
       `http://127.0.0.1:5000/get_podcast?url=${episode.audio_preview_url}`,
       {
@@ -51,19 +51,21 @@ export default function Episode(props) {
   }, []);
 
   return (
-    <main className="bg-spotifyOrangeDark h-screen overflow-scroll">
+    <main className="bg-spotifyDarkGray h-screen overflow-scroll">
       {transcript.length === 0 ? (
         <div className="mt-64">
           <h1 className="text-center text-7xl mb-2 animate-bounce">🤖</h1>
-          <h1 className="text-2xl text-black text-center font-semibold">
+          <h1 className="text-2xl text-white text-center font-semibold">
             Transcribing your podcast. Hang tight...
           </h1>
         </div>
       ) : (
         <>
-          <Navbar transcript={transcript} updateTime={updateTime} />
+          {console.log(transcript)}
+          <h1>Hej</h1>
+          {/* <Navbar transcript={transcript} updateTime={updateTime} />
           <Transcript time={time} transcript={transcript} />
-          <Footer time={time} episode={episode} updateTime={updateTime} />
+          <Footer time={time} episode={episode} updateTime={updateTime} /> */}
         </>
       )}
     </main>
