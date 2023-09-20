@@ -4,12 +4,15 @@
 	title="1" width="150" />
 </p>
 <h1 align="center">
-Spotify Transcripts
+Spotify Transcripts: An improved podcast experience powered by AI.
 </h1>
 
-<h4 align="center">
-Improving Spotify’s podcast experience with AI. 
-<h4>
+<p align="center">
+<img src="/misc/readme/4.png"
+	title="4" width="1000" />
+</p>
+
+
 
 # ✨ Key features 
 - **Transcripts:** Speech recognition to convert speech into text and a timestamp.
