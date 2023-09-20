@@ -4,7 +4,7 @@
 	title="1" width="150" />
 </p>
 <h1 align="center">
-Spotify Transcripts: An improved podcast experience powered by AI.
+Spotify Transcripts: an improved podcast experience powered by AI.
 </h1>
 
 <p align="center">
