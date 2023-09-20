@@ -11,9 +11,6 @@ Spotify Transcripts
 Improving Spotify’s podcast experience with AI. 
 <h4>
 
-
-https://github.com/johan-akerman/SpotifyTranscripts/assets/44551216/a1cd7e18-66f7-4084-a547-600d363bbe29
-
 # ✨ Key features 
 - **Transcripts:** Speech recognition to convert speech into text and a timestamp.
 - **Search:** Search the transcript and jump to a particular part of a conversation.
