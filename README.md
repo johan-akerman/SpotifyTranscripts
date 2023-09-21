@@ -4,7 +4,7 @@
 	title="1" width="150" />
 </p>
 <h1 align="center">
-Spotify Transcripts: an improved podcast experience powered by AI.
+Spotify Transcripts: <br /> an improved podcast experience powered by AI.
 </h1>
 
 <p align="center">
@@ -14,17 +14,17 @@ Spotify Transcripts: an improved podcast experience powered by AI.
 
 
 
-# ✨ Key features 
+## ✨ Key features 
 - **Transcripts:** Speech recognition to convert speech into text and a timestamp.
 - **Search:** Search the transcript and jump to a particular part of a conversation.
 - **Chapters:** Break down an episode into auto-generated chapters based on topics.
 - **Subtitles:** Make podcasts accessible to people with hearing difficulties. 
 
 
-# 📖 About the project
+## 📖 About the project
 During the summer of 2020, I participated in Spotify’s summer hackathon and developed [Spotify Topics](https://github.com/johan-akerman/SpotifyTopics), a tool that lets you fast forward to timestamps where certain topics were being discussed. In 2022, I continued to experiment by building subtitles for podcasts based on a [feature idea](https://community.spotify.com/t5/Live-Ideas/Podcasts-Subtitles-for-Podcasts/idi-p/5200537) which received 4500+ upvotes on Spotify’s community forum. In 2023, in the midst of the ChatGPT hype, I got inspired to combine my two previous projects into one podcast player and improve it by utilizing Open AI’s APIs. 
 
-# ⚙️ Technologies used
+## ⚙️ Technologies used
 The technologies used in this project can be found in the table below. 
 
 
@@ -54,16 +54,16 @@ The reason that the mp3 needs to be processed is that I need to get timestamps f
  All of the audio files are now sent to Google’s speech recognition API and returns a string of the transcribed audio. The transcription is now being sent back to the frontend who makes a request to Open AI’s API to segment the transcript and identify potential topics to divide the episode into different chapters. 
 
 
-# 🚫 Limitations
+## 🚫 Limitations
 Spotify’s API does not allow you to download full podcast episodes, only 30 second previews. This makes the app very limited to use and it is therefore only a proof of concept. 
 
-# 🚀 Getting started
+## 🚀 Getting started
 
-## Step 1: Sign up for API keys
+### Step 1: Sign up for API keys
 - [Spotify](https://developer.spotify.com/)
 - [Open AI](https://platform.openai.com/)
 
-## Step 2: Add API keys to .env file
+### Step 2: Add API keys to .env file
 Create a .env file in the root directory and add your API keys:
 
 ```
@@ -71,25 +71,27 @@ REACT_APP_SPOTFY_CLIENT_ID=YOUR_SPOTIFY_CLIENT_ID_GOES_HERE
 REACT_APP_OPEN_AI_KEY=YOUR_OPEN_AI_KEY_GOES_HERE
 ```
 
-## Step 3: Run the project
+### Step 3: Run the project
 Use the following commands to run the project. Start the frontend in one terminal and the backend in another terminal.
 
 
-### Backend
+#### Backend
 ```
 export FLASK_APP=backend
 export FLASK_DEBUG=1
 flask run
 ```
 
-### Frontend
+#### Frontend
 ```
 cd frontend
 npm start
 ```
 
+## 🎞️ Demo
+Watch a 1 min demo of the project [here](https://youtu.be/IRk_AkqIpuI).
 
-# 📸 Screenshots
+## 📸 Screenshots
 <p align="center">
 <img src="/misc/readme/1.png"
 	title="1" width="800" /> 
