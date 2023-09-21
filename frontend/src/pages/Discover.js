@@ -1,7 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import Header from "../components/old/Header";
 import { useAuth } from "../hooks/useAuth";
 
 export default function Discover() {
@@ -27,8 +26,6 @@ export default function Discover() {
 
   return (
     <main className="bg-spotifyDarkGray min-h-screen">
-      <Header />
-
       <div className="text-center lg:w-10/12 w-12/12 pt-40 mb-32 mx-auto">
         <h1 className="text-white text-5xl text-semibold tracking-wider mb-12">
           Seach for a podcast
@@ -54,7 +51,7 @@ export default function Discover() {
         {episodes.map((episode) => (
           <Link
             key={episode.id}
-            to="/dashboard"
+            to="/episode"
             state={episode}
             className="max-w-sm rounded-md overflow-hidden shadow-lg bg-spotifyMediumGray hover:bg-spotifyLightGray p-3.5"
           >
