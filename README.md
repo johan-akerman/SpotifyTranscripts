@@ -4,7 +4,7 @@
 	title="1" width="150" />
 </p>
 <h1 align="center">
-Spotify Transcripts: <br /> an improved podcast experience powered by AI.
+Spotify Transcripts: <br /> AI generated subtitles and segmented chapters for podcasts.
 </h1>
 
 <p align="center">
@@ -22,7 +22,14 @@ Spotify Transcripts: <br /> an improved podcast experience powered by AI.
 
 
 ## 📖 About the project
-During the summer of 2020, I participated in Spotify’s summer hackathon and developed [Spotify Topics](https://github.com/johan-akerman/SpotifyTopics), a tool that lets you fast forward to timestamps where certain topics were being discussed. In 2022, I continued to experiment by building subtitles for podcasts based on a [feature idea](https://community.spotify.com/t5/Live-Ideas/Podcasts-Subtitles-for-Podcasts/idi-p/5200537) which received 4500+ upvotes on Spotify’s community forum. In 2023, in the midst of the ChatGPT hype, I got inspired to combine my two previous projects into one podcast player and improve it by utilizing Open AI’s APIs. 
+This project is the result of a combination and continued development of two of my previous projects: 
+
+<ol>
+  <li>Spotify Topics: During the summer of 2020, I participated in Spotify’s summer hackathon and developed Spotify Topics, a tool that lets you fast forward to timestamps where certain topics were being discussed. </li>
+  <li>Spotify Subtitles: In 2022, I continued to experiment by building subtitles for podcasts based on a feature idea which received 4500+ upvotes on Spotify’s community forum.</li>
+</ol>
+
+ In 2023, in the midst of the ChatGPT hype, I got inspired to combine my two previous projects into one podcast player and improve it by utilizing Open AI’s APIs. 
 
 ## ⚙️ Technologies used
 The technologies used in this project can be found in the table below. 
