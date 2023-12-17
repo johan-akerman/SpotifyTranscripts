@@ -28,6 +28,9 @@ This project is the result of a combination and continued development of two of 
 - **Spotify Subtitles:** In 2022, I continued to experiment by building subtitles for podcasts based on a [feature idea](https://community.spotify.com/t5/Live-Ideas/Podcasts-Subtitles-for-Podcasts/idi-p/5200537) which received 4500+ upvotes on Spotify’s community forum.
 
  In 2023, in the midst of the ChatGPT hype, I got inspired to combine my two previous projects into one podcast player and improve it by utilizing Open AI’s APIs. 
+ 
+ 
+FYI: Spotify later released a similar solution for both podcast subtitles and chapters, read more [here](https://pr-newsroom-wp.appspot.com/2023-09-28/international-podcast-day-transcripts-chapters-show-pages-global/).
 
 ## ⚙️ Technologies used
 The technologies used in this project can be found in the table below. 
